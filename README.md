@@ -2,6 +2,7 @@
 
 This package (WIP) implements the coefficient of correlation proposed in:
 > Chatterjee, S. "A new coefficient of correlation. arXiv e-prints, page." arXiv preprint arXiv:1909.10140 711 (2020).
+
 An [R package](https://github.com/cran/XICOR) already exists to compute this coefficient of correlation.
 
 This is primarily for learning Julia syntax/module development/etc.
