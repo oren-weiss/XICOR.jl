@@ -15,7 +15,6 @@ module XICOR
 		LS =  2*l_i'*(n .- l_i);
 		# return 1 - n*sum(abs,r_i[2:end] .- r_i[1:end-1])/(2*sum(l_i.*(n .- l_i))),r_i,l_i;
 		return 1 - RS/LS;
-		# print("OK")
 	end
 	
 
@@ -26,16 +25,13 @@ module XICOR
 	function xicor(X::Matrix{T}) where {T<:Real}
 		nRows,nColumns = size(X);
 		ximat = zeros(nColumns,nColumns);
-		# rymat = zeros(nColumns,nColumns,nRows);
-		# lymat = zeros(nColumns,nColumns,nRows);
+
 		for jColumn in 1:nColumns
 			for iColumn in 1:jColumn
 				xloop = X[:,iColumn];
 				yloop = X[:,jColumn];
 				ximat[iColumn,jColumn]= xicor(xloop,yloop);
 				ximat[jColumn,iColumn]= xicor(yloop,xloop);
-				# ximat[iColumn,jColumn],rymat[iColumn,jColumn,:],lymat[iColumn,jColumn,:] = xicor(xloop,yloop);
-				# ximat[jColumn,iColumn],rymat[jColumn,iColumn,:],lymat[jColumn,iColumn,:] = xicor(yloop,xloop);
 			end
 		end
 
